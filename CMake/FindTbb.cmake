@@ -131,6 +131,7 @@ set (TBB_FOUND "NO")
 # first: use CMake variable TBB_INSTALL_DIR
 if (TBB_INSTALL_DIR)
     set (_TBB_INSTALL_DIR ${TBB_INSTALL_DIR})
+    message ("found tbb var. ${_TBB_INSTALL_DIR}")
 endif (TBB_INSTALL_DIR)
 # second: use environment variable
 if (NOT _TBB_INSTALL_DIR)

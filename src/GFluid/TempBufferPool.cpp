@@ -34,7 +34,7 @@ TempBufferPool::TempBufferPool(const ClSystem& system, int bufferElementCount) :
 	for (int i = 0; i < m_floatBufferCount; ++i)
 	{
 		int err;
-		m_floatBuffers[i].reset(new cl::Buffer(system._getContext(), CL_MEM_READ_WRITE, bufferSize, 0, &err));
+		m_floatBuffers[i].reset(new cl::Buffer(system._getContext(), (cl_mem_flags)CL_MEM_READ_WRITE, (size_t)bufferSize, 0, &err));
 		checkError(err);
 	}
 }

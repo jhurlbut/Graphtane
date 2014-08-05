@@ -74,7 +74,7 @@ public:
 		// Main technique
 		{
 			ShaderProgramPtr shader = ShaderProgram::createShaderProgram(
-				ShaderProgramConfig("Shaders/Common/SimpleTexturedShadowed.vert", "Shaders/Common/SimpleColorDiffuseShadowed.frag"));
+				ShaderProgramConfig("c:\\projects\\Graphtane\\Shaders\\Common\\SimpleTexturedShadowed.vert", "c:\\projects\\Graphtane\\Shaders\\Common\\SimpleColorDiffuseShadowed.frag"));
 
 			TechniquePtr technique(new Technique(shader));
 
@@ -89,7 +89,7 @@ public:
 		// Shadow caster technique
 		{
 			ShaderProgramPtr shadowShader = ShaderProgram::createShaderProgram(
-				ShaderProgramConfig("Shaders/Volume/HardSurfaceDeepShadowCaster.vert", "Shaders/Volume/HardSurfaceDeepShadowCaster.frag"));
+				ShaderProgramConfig("c:\\projects\\Graphtane\\Shaders\\Volume\\HardSurfaceDeepShadowCaster.vert", "c:\\projects\\Graphtane\\Shaders\\Volume\\HardSurfaceDeepShadowCaster.frag"));
 
 			TechniquePtr technique(new Technique(shadowShader));
 			material->setTechnique(technique, TechniqueCategory_DepthRtt);
@@ -203,7 +203,7 @@ public:
 
 			// Main technique
 			{
-				ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("Shaders/Volume/RaymarchedVolume.vert", "Shaders/Volume/VolumetricSmoke.frag"));
+				ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("c:\\projects\\Graphtane\\Shaders\\Volume\\RaymarchedVolume.vert", "c:\\projects\\Graphtane\\Shaders\\Volume\\VolumetricSmoke.frag"));
 				
 				
 				TechniquePtr technique(new Technique(shader));
@@ -242,7 +242,7 @@ public:
 
 			// Deep shadow caster technique
 			{
-				ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("Shaders/Volume/RaymarchedVolume.vert", "Shaders/Volume/VolumeShadowCaster.frag"));
+				ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("c:\\projects\\Graphtane\\Shaders\\Volume\\RaymarchedVolume.vert", "c:\\projects\\Graphtane\\Shaders\\Volume\\VolumeShadowCaster.frag"));
 
 				TechniquePtr technique(new Technique(shader));
 				{
@@ -322,7 +322,7 @@ public:
 		{
 			TextureUnit textureUnit(offscreenTransparentObjectsTexture, "albedoSampler");
 
-			ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("Shaders/Common/ScreenQuad.vert", "Shaders/Common/SimpleTextured.frag"));
+			ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("c:\\projects\\Graphtane\\Shaders\\Common\\ScreenQuad.vert", "c:\\projects\\Graphtane\\Shaders\\Common\\SimpleTextured.frag"));
 			TechniquePtr technique(new Technique(shader));
 			technique->addTextureUnit(textureUnit);
 			technique->setAlphaBlendingMode(AlphaBlendingMode_PreMultiplied);
@@ -342,7 +342,7 @@ public:
 
 		int tempBufferElementCount = m_textureConfig.width * m_textureConfig.height * m_textureConfig.depth;
 
-		std::string fluidKernelsDir = "Kernels/Fluid";
+		std::string fluidKernelsDir = "c:\\projects\\Graphtane\\Kernels\\Fluid";
 
 		TempBufferPoolPtr tempBufferPool(new TempBufferPool(*m_clSystem, tempBufferElementCount));
 		m_solver = createFluidSolver(*m_clSystem, getGlTexture(m_fluidStateTexture), tempBufferPool, fluidKernelsDir);

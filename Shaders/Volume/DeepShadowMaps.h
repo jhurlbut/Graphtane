@@ -32,20 +32,20 @@ DeepShadowMapSample getDeepShadowMapSample(sampler2D shadowSampler, vec3 shadowT
 {
 	vec4 s = texture(shadowSampler, shadowTexcoord.xy);
 	
-	DeepShadowMapSample sample;
-	sample.startDepth = s.r;
-	sample.endDepth = s.g + 0.00001; // add bias to ensure endDepth > startDepth
-	sample.endVisibility = s.b;
-	return sample;
+	DeepShadowMapSample shadowSamp;
+	shadowSamp.startDepth = s.r;
+	shadowSamp.endDepth = s.g + 0.00001; // add bias to ensure endDepth > startDepth
+	shadowSamp.endVisibility = s.b;
+	return shadowSamp;
 }
 
 float getVisibility_dsm(sampler2D shadowSampler, vec3 shadowTexcoord)
 {
-	DeepShadowMapSample sample = getDeepShadowMapSample(shadowSampler, shadowTexcoord);
+	DeepShadowMapSample shadowSamp = getDeepShadowMapSample(shadowSampler, shadowTexcoord);
 	float receiverDepth = shadowTexcoord.z - 0.00005; // add small bias to prevent self shadowing on when visibility falloff rapid
 	
-	float startToEndFactor = min(max(receiverDepth - sample.startDepth, 0.0) / (sample.endDepth - sample.startDepth), 1.0);
-	return mix(1, sample.endVisibility, startToEndFactor);
+	float startToEndFactor = min(max(receiverDepth - shadowSamp.startDepth, 0.0) / (shadowSamp.endDepth - shadowSamp.startDepth), 1.0);
+	return mix(1, shadowSamp.endVisibility, startToEndFactor);
 }
 
 #endif

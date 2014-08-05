@@ -134,7 +134,7 @@ public:
 
 			for (int i = 0; i < fluidStateGridCount; i++)
 			{
-				m_fluidStateGrids[i] = cl::Buffer(system._getContext(), CL_MEM_COPY_HOST_PTR | CL_MEM_READ_WRITE, gridSize, data.get(), &err);
+				m_fluidStateGrids[i] = cl::Buffer(system._getContext(), (cl_mem_flags)CL_MEM_COPY_HOST_PTR | CL_MEM_READ_WRITE, gridSize, data.get(), &err);
 				checkError(err);
 			}
 
@@ -163,7 +163,7 @@ public:
 
 			for (int i = 0; i < velocityGridCount; i++)
 			{
-				m_velocityGrids[i] = cl::Buffer(system._getContext(), CL_MEM_COPY_HOST_PTR | CL_MEM_READ_WRITE, dataSize, data.get(), &err);
+				//m_velocityGrids[i] = cl::Buffer(system._getContext(), CL_MEM_COPY_HOST_PTR | CL_MEM_READ_WRITE, dataSize, data.get(), &err);
 				checkError(err);
 			}
 
@@ -260,7 +260,7 @@ private:
 		}
 
 		// GFluid State Advection
-		m_fluidStateAdvecter->advect(*m_fluidStateGridOutputPtr, *m_fluidStateGridInputPtr, *m_velocityGridInputPtr, dt);
+		//m_fluidStateAdvecter->advect(*m_fluidStateGridOutputPtr, *m_fluidStateGridInputPtr, *m_velocityGridInputPtr, dt);
 
 		// swap buffers
 		std::swap(m_fluidStateGridInputPtr, m_fluidStateGridOutputPtr);
@@ -278,7 +278,7 @@ private:
 		checkError(m_queue.flush());
 		waitForComplete(evt);
 
-		if (true)
+		if (false)
 		{
 			checkError(m_kernel_visFluid.setArg(0, m_fluidStateImageBuffer));
 			checkError(m_kernel_visFluid.setArg(1, *m_fluidStateGridInputPtr));

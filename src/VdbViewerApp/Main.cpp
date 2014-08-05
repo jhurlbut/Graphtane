@@ -78,7 +78,7 @@ public:
 		m_transparent(transparent),
 		m_opacityMultiplier(opacityMultiplier)
 	{
-		ShaderProgramConfig config("Shaders/Volume/VdbRaymarchedVolume.vert", "Shaders/Volume/VdbRaymarchedVolume.frag");
+		ShaderProgramConfig config("c:\\projects\\Graphtane\\Shaders\\Volume\\VdbRaymarchedVolume.vert", "c:\\projects\\Graphtane\\Shaders\\Volume\\VdbRaymarchedVolume.frag");
 		
 		// Set shader macro definitions
 		if (m_gridRoles.find(GridTextureRole_Normal) != m_gridRoles.end())
@@ -93,7 +93,7 @@ public:
 
 		// Create shader
 		m_volumeShader = ShaderProgram::createShaderProgram(config);
-		m_temperatureRampTexture = DdsLoader::load("Textures/TemperatureRamp.dds", ColorSpace_SRGB);
+		m_temperatureRampTexture = DdsLoader::load("c:\\projects\\Graphtane\\Textures\\TemperatureRamp.dds", ColorSpace_SRGB);
 		m_temperatureRampTexture->setTextureAddressMode(TextureAddressMode_Clamp);
 	}
 
@@ -414,7 +414,7 @@ public:
 			{
 				TextureUnit textureUnit(offscreenTransparentObjectsTexture, "albedoSampler");
 
-				ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("Shaders/Common/ScreenQuad.vert", "Shaders/Common/SimpleTextured.frag"));
+				ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("c:\\projects\\Graphtane\\Shaders\\Common\\ScreenQuad.vert", "c:\\projects\\Graphtane\\Shaders\\Common\\SimpleTextured.frag"));
 				TechniquePtr technique(new Technique(shader));
 				technique->addTextureUnit(textureUnit);
 				technique->setAlphaBlendingMode(AlphaBlendingMode_PreMultiplied);

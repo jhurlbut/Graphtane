@@ -18,6 +18,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#pragma OPENCL EXTENSION cl_khr_3d_image_writes : enable
+
 #define ON_DEVICE
 #include "FluidDataTypes.h"
 #include "Trilinear.h"
@@ -149,7 +151,8 @@ __kernel void visFluid(__write_only image3d_t image, const __global FluidState* 
 
 	float combustion = clamp(temperature * 2 - 1, 0.0f, 1.0f);
 	float4 color = (float4)(alpha, combustion, 0, 0);
-	write_imagef(image, (int4)(get_global_id(0), get_global_id(1), get_global_id(2), 0), color);
+	image3d_t image2;
+	write_imagef(image2, (int4)(get_global_id(0), get_global_id(1), get_global_id(2), 0), color);
 }
 
 __kernel void visVelocity(__write_only image3d_t image, const __global float3* velocityGrid)

@@ -71,7 +71,7 @@ Application::Application(const ApplicationConfig& config) :
 	m_visSystem.reset(new VisSystem);
 
 	m_window.reset(new Window(config.windowConfig));
-	m_window->setMouseVisible(false);
+	//m_window->setMouseVisible(false);
 
 	ViewportConfig viewportConfig = ViewportConfig::createDefault();
 	viewportConfig.width = m_window->getWidth();

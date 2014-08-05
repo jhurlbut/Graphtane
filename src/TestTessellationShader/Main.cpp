@@ -57,7 +57,7 @@ public:
 		light->setDirection(glm::normalize(glm::vec3(2, -1, -1)));
 		m_visSystem->addLight(light);
 
-		m_camera->getProjection()->setNearClipDistance(0.5);
+		m_camera->getProjection()->setNearClipDistance(0.05);
 		m_camera->getProjection()->setFarClipDistance(1000);
 
 		// Create heightmap
@@ -87,9 +87,9 @@ public:
 
 		// Create tessellated plane
 		{
-			ShaderProgramConfig config("Shaders/TessDisplacement/TessDisplacement.vert", "Shaders/Common/SimpleTextured.frag");
-			config.shaderFilepaths[ShaderType_TessellationControl] = "Shaders/TessDisplacement/TessDisplacement.tctrl";
-			config.shaderFilepaths[ShaderType_TessellationEvaluation] = "Shaders/TessDisplacement/TessDisplacement.teval";
+			ShaderProgramConfig config("c:\\projects\\Graphtane\\Shaders\\TessDisplacement\\TessDisplacement.vert", "c:\\projects\\Graphtane\\Shaders\\Common\\SimpleTextured.frag");
+			config.shaderFilepaths[ShaderType_TessellationControl] = "c:\\projects\\Graphtane\\Shaders\\TessDisplacement\\TessDisplacement.tctrl";
+			config.shaderFilepaths[ShaderType_TessellationEvaluation] = "c:\\projects\\Graphtane\\Shaders\\TessDisplacement\\TessDisplacement.teval";
 
 			ShaderProgramPtr shader = ShaderProgram::createShaderProgram(config);
 			TechniquePtr technique(new Technique(shader));

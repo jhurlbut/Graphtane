@@ -33,7 +33,7 @@ namespace GAppFramework {
 
 RenderableFactory::RenderableFactory()
 {
-	m_screenQuadProgram = ShaderProgram::createShaderProgram(ShaderProgramConfig("Shaders/Common/ScreenQuad.vert", "Shaders/Common/SimpleTextured.frag"));
+	m_screenQuadProgram = ShaderProgram::createShaderProgram(ShaderProgramConfig("c:\\projects\\Graphtane\\Shaders\\Common\\ScreenQuad.vert", "c:\\projects\\Graphtane\\Shaders\\Common\\SimpleTextured.frag"));
 }
 
 RenderableNodePtr RenderableFactory::createScreenQuad(const ShaderProgramPtr& program, const GVis::TexturePtr& texture, float scale)

@@ -111,6 +111,7 @@ Window::Window(const WindowConfig& config) :
 	glfwMakeContextCurrent(m_window);
 
 	glfwSetInputMode(m_window, GLFW_STICKY_KEYS, GL_TRUE);
+	glewExperimental = GL_TRUE; 
 
 	if (glewInit() != GLEW_OK)
 	{

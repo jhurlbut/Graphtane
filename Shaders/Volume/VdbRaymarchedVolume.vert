@@ -18,14 +18,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#version 330 core
+#version 410
 
 layout(location = 0) in vec4 vertexPosition_modelSpace;
 layout(location = 1) in vec3 vertexTexCoord;
 
 out vec3 texCoord;
 out vec3 position_modelSpace;
-out flat int nodeIndirectionBaseIndex;
+flat out int nodeIndirectionBaseIndex;
 
 uniform mat4 modelViewProj;
 uniform int firstInternalNodeIndex;

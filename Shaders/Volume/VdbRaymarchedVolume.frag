@@ -18,7 +18,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#version 330 core
+#version 410
 
 #include "DeepShadowMaps.h"
 #include "VolumeUtil.h"
@@ -26,7 +26,7 @@
 
 in vec3 texCoord;
 in vec3 position_modelSpace;
-in flat int nodeIndirectionBaseIndex;
+flat in int nodeIndirectionBaseIndex;
 
 out vec4 color;
 

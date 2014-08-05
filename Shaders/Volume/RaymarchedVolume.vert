@@ -18,7 +18,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#version 330 core
+#version 400
 
 layout(location = 0) in vec4 vertexPosition_modelSpace;
 layout(location = 1) in vec3 vertexTexCoord;

@@ -52,8 +52,8 @@ public:
 		light->setDirection(glm::normalize(glm::vec3(2, -1, -1)));
 		m_visSystem->addLight(light);
 
-		ShaderProgramConfig config("Shaders/Common/PassThrough.vert", "Shaders/Common/SimpleColor.frag");
-		config.shaderFilepaths[ShaderType_Geometry] = "Shaders/DuplicateMirrored.geom";
+		ShaderProgramConfig config("c:\\projects\\Graphtane\\Shaders\\Common\\PassThrough.vert", "c:\\projects\\Graphtane\\Shaders\\Common\\SimpleColor.frag");
+		config.shaderFilepaths[ShaderType_Geometry] = "c:\\projects\\Graphtane\\Shaders\\DuplicateMirrored.geom";
 		ShaderProgramPtr shader = ShaderProgram::createShaderProgram(config);
 
 		MeshPtr mesh = BoxMeshFactory::createMesh(BoxConfig::defaultWithSize(glm::vec3(1, 1, 1)));

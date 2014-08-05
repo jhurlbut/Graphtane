@@ -33,7 +33,7 @@ set(OpenVdb_LIBRARIES optimized ${OpenVdb_LIBRARY_RELEASE} debug ${OpenVdb_LIBRA
 if(OpenVdb_LIBRARIES AND OpenVdb_INCLUDE_DIRS)
 	set(OpenVdb_FOUND "YES")
 
-	find_package(TBB REQUIRED)
+	#find_package(TBB REQUIRED)
 	list(APPEND OpenVdb_INCLUDE_DIRS ${TBB_INCLUDE_DIRS})
 	list(APPEND OpenVdb_LIBRARIES optimized ${TBB_LIBRARIES} debug ${TBB_DEBUG_LIBRARIES})
 	

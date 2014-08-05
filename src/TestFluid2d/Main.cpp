@@ -74,13 +74,13 @@ public:
 		m_densityTextureConfig.textureAddressMode = TextureAddressMode_Clamp;
 		TexturePtr densityTexture(new Texture(m_densityTextureConfig));
 		
-		ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("Shaders/Common/ScreenQuad.vert", "Shaders/Volume/VolumeTextureSlice.frag"));
+		ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("c:\\projects\\Graphtane\\Shaders\\Common\\ScreenQuad.vert", "c:\\projects\\Graphtane\\Shaders\\Volume\\VolumeTextureSlice.frag"));
 		RenderableNodePtr node = m_renderableFactory->createScreenQuad(shader, densityTexture);
 		m_visSystem->addRenderableNode(node);
 
 		int tempBufferElementCount = m_densityTextureConfig.width * m_densityTextureConfig.height;
 		m_solver = createFluidSolver(*m_clSystem, getGlTexture(densityTexture),
-						TempBufferPoolPtr(new TempBufferPool(*m_clSystem, tempBufferElementCount)), "Kernels/Fluid");
+						TempBufferPoolPtr(new TempBufferPool(*m_clSystem, tempBufferElementCount)), "c:\\projects\\Graphtane\\Kernels\\Fluid");
 
 		m_solver->setOutputWriteGammaPower(1.0 / 2.2); // gives better colour precision when writing to 8 bit
 	}

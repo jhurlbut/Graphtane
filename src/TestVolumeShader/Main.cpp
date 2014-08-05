@@ -65,7 +65,7 @@ public:
 
 		// Main technique
 		{
-			ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("Shaders/Common/SimpleTexturedShadowed.vert", "Shaders/Common/SimpleColorDiffuseShadowed.frag"));
+			ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("c:\\projects\\Graphtane\\Shaders\\Common\\SimpleTexturedShadowed.vert", "c:\\projects\\Graphtane\\Shaders\\Common\\SimpleColorDiffuseShadowed.frag"));
 		
 			TechniquePtr technique(new Technique(shader));
 			TextureUnit unit(m_shadowTexture, "shadowSampler");
@@ -76,7 +76,7 @@ public:
 
 		// Shadow caster technique
 		{
-			ShaderProgramPtr shadowShader = ShaderProgram::createShaderProgram(ShaderProgramConfig("Shaders/Volume/HardSurfaceDeepShadowCaster.vert", "Shaders/Volume/HardSurfaceDeepShadowCaster.frag"));
+			ShaderProgramPtr shadowShader = ShaderProgram::createShaderProgram(ShaderProgramConfig("c:\\projects\\Graphtane\\Shaders\\Volume\\HardSurfaceDeepShadowCaster.vert", "c:\\projects\\Graphtane\\Shaders\\Volume\\HardSurfaceDeepShadowCaster.frag"));
 			TechniquePtr technique(new Technique(shadowShader));
 			material->setTechnique(technique, TechniqueCategory_DepthRtt);
 		}
@@ -167,7 +167,7 @@ public:
 			HardSurfaceMaterialFactory materialFactory(m_shadowProjector->getShadowTexture(), this);
 			// Ground plane
 			{
-				RectangleConfig config = RectangleConfig::defaultWithSize(glm::vec2(5, 5));
+				RectangleConfig config = RectangleConfig::defaultWithSize(glm::vec2(50, 50));
 				config.orientation = glm::angleAxis(halfPi(), glm::vec3(-1, 0, 0));
 				MeshPtr mesh = RectangleMeshFactory::createMesh(config);
 
@@ -178,7 +178,7 @@ public:
 
 			// Column
 			{
-				RenderableNodePtr renderableNode = ObjLoader::load("Meshes/Cylinder.obj", materialFactory);
+				RenderableNodePtr renderableNode = ObjLoader::load("c:\\projects\\Graphtane\\Meshes\\Cylinder.obj", materialFactory);
 				renderableNode->setPosition(glm::vec3(-0.4, 0.3, 0.4));
 				m_visSystem->addRenderableNode(renderableNode);
 			}
@@ -186,18 +186,18 @@ public:
 
 		// Volume
 		{
-			int width = 128;
+			int width = 256;
 			TexturePtr densityTexture = createDensityTexture(width);
 
 
-			glm::vec3 boxSize(1, 1, 1);
+			glm::vec3 boxSize(3, 3, 3);
 			glm::vec3 volumeTextureSize(width);
 
 			MaterialPtr material(new Material);
 
 			// Main technique
 			{
-				ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("Shaders/Volume/RaymarchedVolume.vert", "Shaders/Volume/RaymarchedVolume.frag"));
+				ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("c:\\projects\\Graphtane\\Shaders\\Volume\\RaymarchedVolume.vert", "c:\\projects\\Graphtane\\Shaders\\Volume\\RaymarchedVolume.frag"));
 				
 				
 				TechniquePtr technique(new Technique(shader));
@@ -230,7 +230,7 @@ public:
 
 			// Deep shadow caster technique
 			{
-				ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("Shaders/Volume/RaymarchedVolume.vert", "Shaders/Volume/VolumeShadowCaster.frag"));
+				ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("c:\\projects\\Graphtane\\Shaders\\Volume\\RaymarchedVolume.vert", "c:\\projects\\Graphtane\\Shaders\\Volume\\VolumeShadowCaster.frag"));
 
 				TechniquePtr technique(new Technique(shader));
 				{
@@ -255,7 +255,7 @@ public:
 				MeshPtr mesh = BoxMeshFactory::createMesh(config);
 				GeoPtr geo(new Geo(mesh, material));
 
-				RenderableNodePtr renderableNode = RenderableNode::createWithSingleGeo(geo, glm::vec3(0, 0.5, 0));
+				RenderableNodePtr renderableNode = RenderableNode::createWithSingleGeo(geo, glm::vec3(0, 3.0, 0));
 				m_visSystem->addRenderableNode(renderableNode, RenderQueueId_OffscreenTransparentObjects);
 			}
 		}
@@ -292,7 +292,7 @@ public:
 		{
 			TextureUnit textureUnit(offscreenTransparentObjectsTexture, "albedoSampler");
 
-			ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("Shaders/Common/ScreenQuad.vert", "Shaders/Common/SimpleTextured.frag"));
+			ShaderProgramPtr shader = ShaderProgram::createShaderProgram(ShaderProgramConfig("c:\\projects\\Graphtane\\Shaders\\Common\\ScreenQuad.vert", "c:\\projects\\Graphtane\\Shaders\\Common\\SimpleTextured.frag"));
 			TechniquePtr technique(new Technique(shader));
 			technique->addTextureUnit(textureUnit);
 			technique->setAlphaBlendingMode(AlphaBlendingMode_PreMultiplied);
@@ -309,7 +309,8 @@ public:
 			}
 		}
 
-		m_camera->setPosition(glm::vec3(2.2, 1.0, 2.2));
+		m_camera->setPosition(glm::vec3(2.2, 1.0, .2));
+
 		m_cameraController->rotate(0.65, -0.2);
 	}
 
