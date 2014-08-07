@@ -1,0 +1,16 @@
+D:/projects/Graphtane/build/CMakeFiles/ALL_BUILD.dir
+D:/projects/Graphtane/build/src/GAppFramework/CMakeFiles/GAppFramework.dir
+D:/projects/Graphtane/build/src/GCommon/CMakeFiles/GCommon.dir
+D:/projects/Graphtane/build/src/GCompute/CMakeFiles/GCompute.dir
+D:/projects/Graphtane/build/src/GComputeVis/CMakeFiles/GComputeVis.dir
+D:/projects/Graphtane/build/src/GFluid/CMakeFiles/GFluid.dir
+D:/projects/Graphtane/build/src/GSparseVolumes/CMakeFiles/GSparseVolumes.dir
+D:/projects/Graphtane/build/src/GSparseVolumesVdb/CMakeFiles/GSparseVolumesVdb.dir
+D:/projects/Graphtane/build/src/GVis/CMakeFiles/GVis.dir
+D:/projects/Graphtane/build/src/TestFluid2d/CMakeFiles/TestFluid2d.dir
+D:/projects/Graphtane/build/src/TestFluid3d/CMakeFiles/TestFluid3d.dir
+D:/projects/Graphtane/build/src/TestGeometryShader/CMakeFiles/TestGeometryShader.dir
+D:/projects/Graphtane/build/src/TestTessellationShader/CMakeFiles/TestTessellationShader.dir
+D:/projects/Graphtane/build/src/TestVolumeShader/CMakeFiles/TestVolumeShader.dir
+D:/projects/Graphtane/build/src/VdbViewerApp/CMakeFiles/VdbViewerApp.dir
+D:/projects/Graphtane/build/CMakeFiles/ZERO_CHECK.dir
